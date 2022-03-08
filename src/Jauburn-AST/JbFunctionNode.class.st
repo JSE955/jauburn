@@ -18,6 +18,19 @@ JbFunctionNode >> body: anObject [
 	body := anObject
 ]
 
+{ #category : #api }
+JbFunctionNode >> evaluateIn: environment [ 
+	
+	| func |
+	
+	func := JbFunction new.
+	func environment: environment.
+	func body: self body.
+	func parameters: (self parameters collect: [ :p | p identifier ]).
+	^ func.
+	
+]
+
 { #category : #accessing }
 JbFunctionNode >> parameters [
 	^ parameters

@@ -8,6 +8,18 @@ Class {
 }
 
 { #category : #accessing }
+JbReturnStatementNode >> evaluateIn: environment [
+	
+	self expression evaluateIn: environment
+]
+
+{ #category : #accessing }
+JbReturnStatementNode >> executeIn: environment [
+	
+	self expression evaluateIn: environment
+]
+
+{ #category : #accessing }
 JbReturnStatementNode >> expression [
 	^ expression
 ]

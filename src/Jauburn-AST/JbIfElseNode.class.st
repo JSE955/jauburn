@@ -8,6 +8,16 @@ Class {
 }
 
 { #category : #accessing }
+JbIfElseNode >> executeIn: environment [ 
+	 
+	| cond |
+	cond := self condition evaluateIn: environment.
+		cond
+			ifTrue: [ self trueStatements do: [ :each | each executeIn: environment ] ]
+			ifFalse: [ self falseStatements do: [ :each | each executeIn: environment ] ]
+]
+
+{ #category : #accessing }
 JbIfElseNode >> falseStatements [
 	^ falseStatements
 ]

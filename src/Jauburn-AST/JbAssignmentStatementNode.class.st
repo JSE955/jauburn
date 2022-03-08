@@ -9,6 +9,12 @@ Class {
 }
 
 { #category : #accessing }
+JbAssignmentStatementNode >> executeIn: environment [
+	
+	environment lookupAt: self identifier put: (self expression evaluateIn: environment)
+]
+
+{ #category : #accessing }
 JbAssignmentStatementNode >> expression [
 	^ expression
 ]
